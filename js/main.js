@@ -236,6 +236,26 @@
     }
   });
 
+  
+// Function to calculate age
+function calculateAge(birthDate) {
+  const today = new Date();
+  const birth = new Date(birthDate);
+  let age = today.getFullYear() - birth.getFullYear();
+  const monthDifference = today.getMonth() - birth.getMonth();
+
+  // Adjust age if the birth date hasn't occurred yet this year
+  if (monthDifference < 0 || (monthDifference === 0 && today.getDate() < birth.getDate())) {
+      age--;
+  }
+  return age;
+}
+
+// Set the birth date
+const birthDate = '2002-03-13'; // Replace with the actual birth date
+const ageElement = document.getElementById('age');
+ageElement.textContent = calculateAge(birthDate);
+
   /**
    * Animation on scroll
    */
